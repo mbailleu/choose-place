@@ -9,9 +9,12 @@ def main(argv: List[str]) -> int:
         return 1
 
     data = np.genfromtxt(argv[1], dtype = None, delimiter = ',', names = True, encoding = None)
-    total = data["Preference"].sum()
-    for i in range(3):
-        print(i, np.random.choice(data["Name"], p = [ (x / total) for x in data["Preference"]]))
+    max_vec = np.vectorize(lambda x: max(0, x))
+    data["Preference"] = max_vec(data["Preference"])
+    p_v = data["Preference"] / data["Preference"].sum()
+    values = np.random.choice(data["Name"], 3, replace = False, p = p_v)
+    for i, v in enumerate(values):
+        print("%d: %s" % (i, v))
     return 0
 
 if __name__ == "__main__":
