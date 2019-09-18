@@ -18,7 +18,10 @@ def choose_place(kind: str) -> List[str]:
 
 def choose_place_html(kind: str) -> str:
     places = choose_place(f"{kind}.csv")
-    resp = "<html><ul>"
+    resp = """
+    <html>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <ul style="font-size:5vw">"""
     for place in places:
         resp += f"<li>{place}</li>"
     resp += "</ul></html>"
@@ -31,9 +34,10 @@ def create_app():
 def index() -> str:
     return """
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 </head>
-<body>
+<body style="font-size:5vw">
   <ul>
   <li> <a href="/pub">Pub</a></li>
   <li> <a href="/lunch">Lunch</a></li>
