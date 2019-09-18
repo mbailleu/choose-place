@@ -24,6 +24,9 @@ def choose_place_html(kind: str) -> str:
     resp += "</ul></html>"
     return resp
 
+def create_app():
+    return app
+
 @app.route('/')
 def index() -> str:
     return """
