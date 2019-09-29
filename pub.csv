@@ -1,12 +1,12 @@
-Name, Preference
-Library Bar, 1
-Greenmantel, 1
-The Royal Dick Bar, 1
-Hanging Bat, 1
-The Dadga Bar, 1
-The Safari Lounge, 0.25
-The Regent, 0.25
-The Bier Hoose, 0.25
-Soul Nation, 1
-The Argyle and Cellar Bar, 0.1
-The Mash Tun Bier House & Kitchen, 0.1
+Name, Preference, Vegetarian, Vegan, Gluten Free, Low Carb, Comments
+Library Bar, 1, yes, yes, yes, unknown, -
+Greenmantel, 1, unknown, unknown, unknown, unknown, -
+The Royal Dick Bar, 1, N/A, N/A, N/A, N/A, Does not currently serve food
+Hanging Bat, 1, unknown, unknown, unknown, unknown, -
+The Dadga Bar, 1, N/A, N/A, N/A, N/A, Does not serve food
+The Safari Lounge, 0.25, yes, unknown, unknown, unknown, -
+The Regent, 0.25, yes, unknown, unknown, unknown, -
+The Bier Hoose, 0.25, N/A, N/A, N/A, N/A, Does not serve food
+Soul Nation, 1, unknown, unknown, unknown, unknown, -
+The Argyle and Cellar Bar, 0.1, N/A, N/A, N/A, N/A, Does not serve food
+The Mash Tun Bier House & Kitchen, 0.1, yes, unknown, unknown, unknown, No mobile network bad WiFi

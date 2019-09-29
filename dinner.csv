@@ -1,11 +1,14 @@
-Name, Preference
-Boteco Do Brasil, 1
-Mother India's Cafe, 1
-Red Box Noodle Bar, 1
-Taquito, 1
-Thailander, 1
-Civerinos, 1
-Library Bar, 1
-Bonsai Bar Bistro, 0.5
-Kismot, 0.25
-Ola Kala, 0.25
+Name, Preference, Vegetarian, Vegan, Gluten Free, Low Carb, Comments
+Boteco Do Brasil, 1, unknown, unknown, unknown, unknown, -
+Mother India's Cafe, 1, yes, unknown, unknown, unknown, -
+Red Box Noodle Bar, 1, yes, unknown, unknown, unknown, -
+Taquito, 1, yes, no, unknown, unknown, -
+Thailander, 1, yes, unknown, unknown, unknown, -
+Civerinos, 1, yes, yes, unknown, unknown, -
+Library Bar, 1, yes, yes, unknown, unknown, -
+Bonsai Bar Bistro, 0.5, yes, unknown, unknown, unknown, -
+Kismot, 0.25, yes, unknown, unknown, unknown, -
+Ola Kala, 0.25, yes, unknown, unknown, unknown, -
+Nile Valley Cafe, 0.5, yes, yes, unknown, unknown, -
+Kim's Mini Meals, 0.1, no, no, no, no, Hard to get in
+Pizza Posto, 0.5, yes, yes, unknown, unknown, -

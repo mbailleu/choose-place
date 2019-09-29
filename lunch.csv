@@ -1,15 +1,15 @@
-Name, Preference
-Humpit, 1
-Union of Genius, 1
-Red Box Noodle Bar, 1
-The Original Mosque Kitchen, 1
-10to10 Deli, 1
-African Wrap, 1
-Bonnie Burrito, 1
-BaGet Stuffed, 1
-Picnic Basket, 1
-Mary's Milk Bar, 1
-Tupiniquim, 1
-Maki & Ramen, 0.1
-Kebab Mahal, 0.2
-Mosque Kitchen Takeaway, 0.1
+Name, Preference, Vegetarian, Vegan, Gluten Free, Low Carb, Comments
+Humpit, 1, yes, yes, yes, yes, Completely vegan
+Union of Genius, 1, yes, yes, yes, yes, Soups have to try other things
+Red Box Noodle Bar, 1, yes, unknown, yes, no, -
+The Original Mosque Kitchen, 1, yes, yes, yes, unknown, -
+10to10 Deli, 1, yes, yes, yes, yes, -
+African Wrap, 1, yes, yes, unknown, unknown, -
+Bonnie Burrito, 1, yes, yes, unknown, yes, -
+BaGet Stuffed, 1, yes, unknown, unknown, unknown, -
+Picnic Basket, 1, yes, unknown, unknown, unknown, -
+Mary's Milk Bar, 1, no, no, yes, yes, -
+Tupiniquim, 1, yes, unknown, unknown, unknown, -
+Maki & Ramen, 0.1, yes, unknown, unknown, unknown, -
+Kebab Mahal, 0.2, yes, unknown, unknown, unknown, -
+Mosque Kitchen Takeaway, 0.1, yes, unknown, unknown, unknown, -
