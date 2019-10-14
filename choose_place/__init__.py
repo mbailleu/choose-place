@@ -10,6 +10,7 @@ from flask import Flask, abort, render_template
 app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__))).joinpath("..")
 
+list_of_occasions = ["Breakfast", "Lunch", "Coffee", "Dinner", "Pub"]
 
 def choose_places(kind: str) -> List[str]:
     kind_csv = ROOT.joinpath(kind)
@@ -26,13 +27,12 @@ def create_app():
 
 @app.route("/")
 def index() -> str:
-    occasions = ["Pub", "Lunch", "Dinner", "Breakfast"]
-    return render_template("index.html", occasions=occasions)
+    return render_template("index.html", occasions=list_of_occasions)
 
 
 @app.route("/occasion/<kind>")
 def choose_place_html(kind: str) -> str:
-    if kind not in ["pub", "lunch", "dinner", "breakfast"]:
+    if kind not in [x.lower() for x in list_of_occasions]:
         abort(404)
     places = choose_places(f"{kind}.csv")
     return render_template("places.html", places=places)
