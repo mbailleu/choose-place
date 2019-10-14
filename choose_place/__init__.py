@@ -11,7 +11,7 @@ from flask import Flask, Markup, abort, render_template
 app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__))).joinpath("..")
 
-list_of_occasions = ["Breakfast", "Lunch", "Coffee", "Dinner", "Pub"]
+OCCASIONS = ["Breakfast", "Lunch", "Coffee", "Dinner", "Pub"]
 
 
 def choose_places(kind: str) -> List[str]:
@@ -29,7 +29,7 @@ def create_app():
 
 @app.route("/")
 def index() -> str:
-    return render_template("index.html", occasions=list_of_occasions)
+    return render_template("index.html", occasions=OCCASIONS)
 
 
 @app.template_filter("urlencode")
@@ -42,7 +42,7 @@ def urlencode_filter(s: Union[Markup, str]) -> Markup:
 
 @app.route("/occasion/<kind>")
 def choose_place_html(kind: str) -> str:
-    if kind not in [x.lower() for x in list_of_occasions]:
+    if kind not in [x.lower() for x in OCCASIONS]:
         abort(404)
     places = choose_places(f"{kind}.csv")
     return render_template("places.html", places=places)
