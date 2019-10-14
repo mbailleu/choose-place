@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-import sys
 import os
+import sys
+import urllib.parse
 from pathlib import Path
-from typing import List
+from typing import List, Union
 
 import numpy as np
-from flask import Flask, abort, render_template
+from flask import Flask, Markup, abort, render_template
 
 app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__))).joinpath("..")
 
 list_of_occasions = ["Breakfast", "Lunch", "Coffee", "Dinner", "Pub"]
+
 
 def choose_places(kind: str) -> List[str]:
     kind_csv = ROOT.joinpath(kind)
@@ -28,6 +30,14 @@ def create_app():
 @app.route("/")
 def index() -> str:
     return render_template("index.html", occasions=list_of_occasions)
+
+
+@app.template_filter("urlencode")
+def urlencode_filter(s: Union[Markup, str]) -> Markup:
+    if isinstance(s, Markup):
+        s = s.unescape()
+    s = urllib.parse.quote(s)
+    return Markup(s)
 
 
 @app.route("/occasion/<kind>")

@@ -3,7 +3,7 @@
 <ol>
     {% for place in places %}
     <li>
-        <a href="https://www.google.com/maps/place/{{place}}+Edinburgh">{{place}}</a>
+        <a href="http://maps.google.com/?q={{place | urlencode }},+Edinburgh">{{place}}</a>
     </li>
     {% endfor %}
 </ol>
