@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<ul>
+    {% for occasion in occasions %}
+    <li> <a href="/occasion/{{occasion | lower}}">{{occasion}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

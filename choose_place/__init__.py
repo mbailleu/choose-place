@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List
 
 import numpy as np
-from flask import Flask, abort
+from flask import Flask, abort, render_template
 
 app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__))).joinpath("..")
@@ -30,22 +30,8 @@ def create_app():
 
 @app.route("/")
 def index() -> str:
-    return """
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
-</head>
-<body style="font-size:5vw">
-  <ul>
-  <li> <a href="/occasion/pub">Pub</a></li>
-  <li> <a href="/occasion/lunch">Lunch</a></li>
-  <li> <a href="/occasion/dinner">Dinner</a></li>
-  <li> <a href="/occasion/breakfast">Breakfast</a></li>
-  </li>
-  </ul>
-</body>
-</html>
-    """
+    occasions = ["Pub", "Lunch", "Dinner", "Breakfast"]
+    return render_template("index.html", occasions=occasions)
 
 
 @app.route("/occasion/<kind>")
@@ -53,14 +39,7 @@ def choose_place_html(kind: str) -> str:
     if kind not in ["pub", "lunch", "dinner", "breakfast"]:
         abort(404)
     places = choose_place(f"{kind}.csv")
-    resp = """
-    <html>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <ul style="font-size:5vw">"""
-    for place in places:
-        resp += f"<li>{place}</li>"
-    resp += "</ul></html>"
-    return resp
+    return render_template("places.html", places=places)
 
 
 def main() -> None:
