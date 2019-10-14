@@ -2,7 +2,9 @@
 {% block content %}
 <ol>
     {% for place in places %}
-    <li> {{place}} </li>
+    <li>
+        <a href="https://www.google.com/maps/place/{{place}}+Edinburgh">{{place}}</a>
+    </li>
     {% endfor %}
 </ol>
 {% endblock %}
