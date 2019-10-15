@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<ul>
+<h1>Choose a place for ...</h1>
+<div class="btn-group btn-group-lg" role="group">
     {% for occasion in occasions %}
-    <li>
-        <a href="/occasion/{{occasion | lower}}">{{occasion}}</a>
-    </li>
+    <a class="btn btn-link" role="button" href="/occasion/{{occasion | lower}}">{{occasion}}</a>
     {% endfor %}
-</ul>
+</div>
 {% endblock %}
