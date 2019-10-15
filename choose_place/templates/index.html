@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Choose a place for ...</h1>
-<div class="btn-group btn-group-lg" role="group">
+<h1>Choose a place for</h1>
+<ul class="list-group" role="group">
     {% for occasion in occasions %}
-    <a class="btn btn-link" role="button" href="/occasion/{{occasion | lower}}">{{occasion}}</a>
+    <li class="list-group-item">
+        <a href="/occasion/{{occasion | lower}}">{{occasion}}</a>
+    </li>
     {% endfor %}
-</div>
+</ul>
 {% endblock %}
