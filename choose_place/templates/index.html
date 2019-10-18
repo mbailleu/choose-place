@@ -4,7 +4,7 @@
 <ul class="list-group" role="group">
     {% for occasion in occasions %}
     <li class="list-group-item">
-        <a href="/occasion/{{occasion | lower}}">{{occasion}}</a>
+        <a href="/occasion/{{occasion}}">{{occasion[0] | upper}}{{occasion[1:]}}</a>
     </li>
     {% endfor %}
 </ul>
