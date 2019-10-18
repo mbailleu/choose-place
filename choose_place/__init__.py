@@ -11,7 +11,7 @@ from flask import Flask, Markup, abort, render_template
 app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__))).joinpath("..")
 
-OCCASIONS = ["Breakfast", "Lunch", "Coffee", "Dinner", "Pub"]
+OCCASIONS = ["Breakfast", "Brunch", "Lunch", "Coffee", "Dinner", "Pub"]
 
 
 def choose_places(kind: str) -> List[str]:
