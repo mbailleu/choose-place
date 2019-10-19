@@ -17,11 +17,10 @@ ROOT = Path(os.path.dirname(os.path.realpath(__file__)))
 def get_occasions() -> List[str]:
     pattern = str(ROOT.joinpath("data", "*.csv"))
     occasions = []
-    for path in glob.glob(pattern):
+    for path in sorted(glob.glob(pattern)):
         m = re.search(r'\d+_(.*)\.csv$', path)
         if m:
             occasions.append(m.group(1))
-    occasions.sort()
     return occasions
 
 
