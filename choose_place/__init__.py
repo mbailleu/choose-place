@@ -3,6 +3,7 @@ import glob
 import os
 import sys
 import urllib.parse
+import re
 from pathlib import Path
 from typing import List, Union
 
@@ -17,8 +18,10 @@ def get_occasions() -> List[str]:
     pattern = str(ROOT.joinpath("data", "*.csv"))
     occasions = []
     for path in glob.glob(pattern):
-        occasion = os.path.splitext(os.path.basename(path))[0]
-        occasions.append(occasion)
+        m = re.search(r'\d+_(.*)\.csv$', path)
+        if m:
+            occasions.append(m.group(1))
+    occasions.sort()
     return occasions
 
 
