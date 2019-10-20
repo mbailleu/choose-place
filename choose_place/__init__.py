@@ -5,7 +5,7 @@ import sys
 import urllib.parse
 import re
 from pathlib import Path
-from typing import List, Union
+from typing import List, Tuple, Dict, Union
 
 import numpy as np
 from flask import Flask, Markup, abort, render_template
@@ -14,19 +14,20 @@ app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__)))
 
 
-def get_occasions() -> List[str]:
+def get_occasions() -> Tuple[List[str], Dict[str,str]]:
     pattern = str(ROOT.joinpath("data", "*.csv"))
     occasions = []
+    filenames : Dict[str,str] = {}
     for path in sorted(glob.glob(pattern)):
         m = re.search(r'\d+_(.*)\.csv$', path)
         if m:
             occasions.append(m.group(1))
-    return occasions
+            filenames[m.group(1)] = path
+    return occasions, filenames
 
 
 def choose_places(kind: str) -> List[str]:
-    kind_csv = ROOT.joinpath("data", f"{kind}.csv")
-    data = np.genfromtxt(kind_csv, dtype=None, delimiter=",", names=True, encoding=None)
+    data = np.genfromtxt(kind, dtype=None, delimiter=",", names=True, encoding=None)
     max_vec = np.vectorize(lambda x: max(0, x))
     data["Preference"] = max_vec(data["Preference"])
     p_v = data["Preference"] / data["Preference"].sum()
@@ -39,7 +40,7 @@ def create_app():
 
 @app.route("/")
 def index() -> str:
-    return render_template("index.html", occasions=get_occasions())
+    return render_template("index.html", occasions=get_occasions()[0])
 
 
 @app.template_filter("urlencode")
@@ -52,18 +53,19 @@ def urlencode_filter(s: Union[Markup, str]) -> Markup:
 
 @app.route("/occasion/<kind>")
 def choose_place_html(kind: str) -> str:
-    if kind not in get_occasions():
+    occasions, files = get_occasions()
+    if kind not in occasions:
         abort(404)
-    places = choose_places(kind)
+    places = choose_places(files[kind])
     return render_template("places.html", places=places)
 
 
 def main() -> None:
-    occasions = get_occasions()
+    occasions, files = get_occasions()
     if len(sys.argv) == 1 or sys.argv[1] not in occasions:
         print(sys.argv[0], "|".join(occasions))
         sys.exit(1)
-    for i, place in enumerate(choose_places(sys.argv[1])):
+    for i, place in enumerate(choose_places(files[sys.argv[1]])):
         print(f"{i}: {place}")
 
 
