@@ -49,7 +49,7 @@ def choose_places(kind: str) -> List[Place]:
     weights = [place.preference for place in places]
     k = 3
     choices = set(random.choices(places, weights=weights, k=k))
-    while len(choices) < k:
+    while len(choices) < k and not len(places) < k:
         choices |= set(random.choices(places, weights=weights, k=k - len(choices)))
 
     return list(choices)
