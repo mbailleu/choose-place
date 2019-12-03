@@ -1,37 +1,58 @@
 #!/usr/bin/env python3
+import csv
 import glob
 import os
+import random
+import re
 import sys
 import urllib.parse
-import re
+from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Tuple, Dict, Union
+from typing import Dict, List, Tuple, Union
 
-import numpy as np
 from flask import Flask, Markup, abort, render_template
 
 app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__)))
 
 
-def get_occasions() -> Tuple[List[str], Dict[str,str]]:
+def get_occasions() -> Tuple[List[str], Dict[str, str]]:
     pattern = str(ROOT.joinpath("data", "*.csv"))
     occasions = []
-    filenames : Dict[str,str] = {}
+    filenames: Dict[str, str] = {}
     for path in sorted(glob.glob(pattern)):
-        m = re.search(r'\d+_(.*)\.csv$', path)
+        m = re.search(r"\d+_(.*)\.csv$", path)
         if m:
             occasions.append(m.group(1))
             filenames[m.group(1)] = path
     return occasions, filenames
 
 
-def choose_places(kind: str) -> List[str]:
-    data = np.genfromtxt(kind, dtype=None, delimiter=",", names=True, encoding=None)
-    max_vec = np.vectorize(lambda x: max(0, x))
-    data["Preference"] = max_vec(data["Preference"])
-    p_v = data["Preference"] / data["Preference"].sum()
-    return np.random.choice(data["Name"], 3, replace=False, p=p_v)
+@dataclass(frozen=True)
+class Place:
+    name: str
+    preference: float
+
+
+def read_csv(filename: str) -> List[Place]:
+    places = []
+    with open(filename) as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=",", skipinitialspace=True)
+        for row in reader:
+            p = Place(row["Name"], float(row["Preference"]))
+            places.append(p)
+    return places
+
+
+def choose_places(kind: str) -> List[Place]:
+    places = read_csv(kind)
+    weights = [place.preference for place in places]
+    k = 3
+    choices = set(random.choices(places, weights=weights, k=k))
+    while len(choices) < k:
+        choices |= set(random.choices(places, weights=weights, k=k - len(choices)))
+
+    return list(choices)
 
 
 def create_app():
@@ -66,7 +87,7 @@ def main() -> None:
         print(sys.argv[0], "|".join(occasions))
         sys.exit(1)
     for i, place in enumerate(choose_places(files[sys.argv[1]])):
-        print(f"{i}: {place}")
+        print(f"{i}: {place.name}")
 
 
 if __name__ == "__main__":

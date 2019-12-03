@@ -1,4 +1,2 @@
-numpy
-typing
 gunicorn
 flask
