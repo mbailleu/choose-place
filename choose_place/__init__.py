@@ -86,7 +86,7 @@ def choose_place_json(kind: str) -> str:
     if kind not in occasions:
         abort(404)
     places = choose_places(files[kind])
-    return jsonify(places)
+    return jsonify(dict(places=places))
 
 
 def main() -> None:
