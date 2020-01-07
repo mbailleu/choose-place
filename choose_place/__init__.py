@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Tuple, Union
 
-from flask import Flask, Markup, abort, render_template
+from flask import Flask, Markup, abort, render_template, jsonify
 
 app = Flask(__name__)
 ROOT = Path(os.path.dirname(os.path.realpath(__file__)))
@@ -79,6 +79,14 @@ def choose_place_html(kind: str) -> str:
         abort(404)
     places = choose_places(files[kind])
     return render_template("places.html", places=places)
+
+@app.route("/api/occasion/<kind>")
+def choose_place_json(kind: str) -> str:
+    occasions, files = get_occasions()
+    if kind not in occasions:
+        abort(404)
+    places = choose_places(files[kind])
+    return jsonify(places)
 
 
 def main() -> None:
