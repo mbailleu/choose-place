@@ -15,6 +15,7 @@ setup(
     packages=["choose_place"],
     package_data={"choose_place": ["data/*.csv", "templates/*.html"]},
     entry_points={"console_scripts": ["choose-place = choose_place:main"]},
+    install_requires=["flask"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Topic :: Utilities",
