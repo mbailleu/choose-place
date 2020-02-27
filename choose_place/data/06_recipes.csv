@@ -1,6 +1,6 @@
 Name, Preference, Vegetarian, Vegan, Gluten Free, Low Carb, Comments
 Dhal Curry,                                      1, yes, yes, yes, no, -
-Rice pudding (Milchreis),                        1, yes, yes, yes, no, -
+Rice pudding (Milchreis),                        1, yes, no, yes, no, -
 Carrot & Lentil Soup,                            1, yes, yes, yes, no, -
 Vegetarian Thai curry,                           1, yes, yes, yes, no, -
 Schnitzel & Bratkartoffeln (pan fried potatoes), 1,  no, no,  no,  no, -
@@ -22,3 +22,4 @@ Mozzarella Sticks,                               1, yes, no,  no,  no, -
 Potato gratin (dauphinois),                      1, yes, no,  no,  no, -
 Mushroom soup,                                   1, yes, no,  no,  no, -
 Bratwurst,                                       1, yes, no,  no,  no, -
+Spanakopita                                      1, yes, yes, no, no, -
