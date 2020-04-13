@@ -1,28 +1,29 @@
 Name, Preference, Vegetarian, Vegan, Gluten Free, Low Carb, Comments
 Dhal Curry,                                      1, yes, yes, yes, no, -
-Rice pudding (Milchreis),                        1, yes, no, yes, no, -
-Semolina pudding (Grießbrei),                    1, yes, no, yes, no, -
+Rice pudding (Milchreis),                        1, yes,  no, yes, no, -
+Semolina pudding (Grießbrei),                    1, yes,  no, yes, no, -
 Carrot & Lentil Soup,                            1, yes, yes, yes, no, -
 Vegetarian Thai curry,                           1, yes, yes, yes, no, -
-Schnitzel & Bratkartoffeln (pan fried potatoes), 1,  no, no,  no,  no, -
-Soljanka,                                        1,  no, no,  no,  no, -
-Mac & Cheese,                                    1, yes, no,  no,  no, -
-Spaghetti Bolognese,                             1, no,  no,  no,  no, -
-Spätzle (German Noodles),                        1, yes, no,  no,  no, -
-Salmon,                                          1, yes, no,  no,  no, -
-Chicken and leek pie,                            1, no,  no,  no,  no, -
-Chicken paella,                                  1, no,  no,  no,  no, -
-Mince and tatties,                               1, no,  no,  no,  no, -
-Pierogi,                                         1, no,  no,  no,  no, -
-Quiche,                                          1, no,  no,  no,  no, -
-Gulaschsuppe,                                    1, no,  no,  no,  no, -
-Stovies,                                         1, no,  no,  no,  no, -
-Spare ribs with chips and corn on the carb,      1, no,  no,  no,  no, -
-Goat cheese tart,                                1, yes, no,  no,  no, -
-Mozzarella Sticks,                               1, yes, no,  no,  no, -
-Potato gratin (dauphinois),                      1, yes, no,  no,  no, -
-Mushroom soup,                                   1, yes, no,  no,  no, -
-Bratwurst,                                       1, yes, no,  no,  no, -
-Spanakopita                                      1, yes, yes, no,  no, -
-Orzo with chorizo                                1, no,  no,  no,  no, -
-Roasted vegetables with couscous                 1, yes, yes, no,  no, -
+Schnitzel & Bratkartoffeln (pan fried potatoes), 1,  no,  no,  no, no, -
+Soljanka,                                        1,  no,  no,  no, no, -
+Mac & Cheese,                                    1, yes,  no,  no, no, -
+Spaghetti Bolognese,                             1,  no,  no,  no, no, -
+Spätzle (German Noodles),                        1, yes,  no,  no, no, -
+Salmon,                                          1, yes,  no,  no, no, -
+Chicken and leek pie,                            1,  no,  no,  no, no, -
+Chicken paella,                                  1,  no,  no,  no, no, -
+Mince and tatties,                               1,  no,  no,  no, no, -
+Pierogi,                                         1,  no,  no,  no, no, -
+Quiche,                                          1,  no,  no,  no, no, -
+Gulaschsuppe,                                    1,  no,  no,  no, no, -
+Stovies,                                         1,  no,  no,  no, no, -
+Spare ribs with chips and corn on the carb,      1,  no,  no,  no, no, -
+Goat cheese tart,                                1, yes,  no,  no, no, -
+Mozzarella Sticks,                               1, yes,  no,  no, no, -
+Potato gratin (dauphinois),                      1, yes,  no,  no, no, -
+Mushroom soup,                                   1, yes,  no,  no, no, -
+Bratwurst,                                       1, yes,  no,  no, no, -
+Spanakopita                                      1, yes, yes,  no, no, -
+Orzo with chorizo                                1,  no,  no,  no, no, -
+Roasted vegetables with couscous                 1, yes, yes,  no, no, -
+Cordon bleu (with potato mash and carrots)       1,  no,  no,  no, no, -
