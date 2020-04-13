@@ -55,7 +55,7 @@ def choose_places(kind: str) -> List[Place]:
     return list(choices)
 
 
-def create_app():
+def create_app() -> Flask:
     return app
 
 
@@ -79,6 +79,7 @@ def choose_place_html(kind: str) -> str:
         abort(404)
     places = choose_places(files[kind])
     return render_template("places.html", places=places)
+
 
 @app.route("/api/occasion/<kind>")
 def choose_place_json(kind: str) -> str:
