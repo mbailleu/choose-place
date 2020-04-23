@@ -4,7 +4,11 @@
 <ul class="list-group" role="group">
     {% for place in places %}
     <li class="list-group-item" >
-        <a href="https://www.google.com/maps/search/?api=1&query={{place.name | urlencode }},+Edinburgh">{{place.name}}</a>
+        {% if kind == "recipes" %}
+            <a href="recipes/{{place.name}}">{{place.name}}</a>
+        {% else %}
+            <a href="https://www.google.com/maps/search/?api=1&query={{place.name | urlencode }},+Edinburgh">{{place.name}}</a>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>

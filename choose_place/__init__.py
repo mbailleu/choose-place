@@ -78,7 +78,7 @@ def choose_place_html(kind: str) -> str:
     if kind not in occasions:
         abort(404)
     places = choose_places(files[kind])
-    return render_template("places.html", places=places)
+    return render_template("places.html", places=places,kind=kind)
 
 
 @app.route("/api/occasion/<kind>")
@@ -89,6 +89,18 @@ def choose_place_json(kind: str) -> str:
     places = choose_places(files[kind])
     return jsonify(dict(places=places))
 
+@app.route("/occasion/recipes/<recipe_name>")
+def show_recipe_html(recipe_name: str) -> str:
+    occasions, files = get_occasions()
+    if "recipes" not in occasions:
+        abort(404)
+    with open(files["recipes"]) as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=",", skipinitialspace=True)
+        for row in reader:
+            if row["Name"] == recipe_name:
+                recipe = {'name': recipe_name, 'body': row["Comments"]}
+                return render_template("recipe.html", recipe=recipe)
+    abort(404)
 
 def main() -> None:
     occasions, files = get_occasions()

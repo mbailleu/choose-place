@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{recipe.name}}</h1>
+{% if recipe.body == "-" %}
+<p>Bon appetit!</p>
+{% else %}
+    <h2>Ingredients</h2>
+    <p>{{ recipe.body }}</p>
+{% endif %}
+{% endblock %}
