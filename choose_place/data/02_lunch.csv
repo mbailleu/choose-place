@@ -1,5 +1,5 @@
 Name, Preference, Vegetarian, Vegan, Gluten Free, Low Carb, Comments
-Humpit, 1, yes, yes, yes, yes, Completely vegan
+Humpit, 0, yes, yes, yes, yes, Completely vegan
 Union of Genius, 1, yes, yes, yes, yes, Soups have to try other things
 Red Box Noodle Bar, 1, yes, unknown, yes, no, -
 The Original Mosque Kitchen, 1, yes, yes, yes, unknown, -
@@ -14,5 +14,5 @@ Maki & Ramen, 0.1, yes, unknown, unknown, unknown, -
 Kebab Mahal, 0.2, yes, unknown, unknown, unknown, -
 Mosque Kitchen Takeaway, 0.1, yes, unknown, unknown, unknown, -
 Paradise Palms, 0.2, yes, yes, unknown, unknown, -
-Palmyra Pizza, 1, yes, yes, unknown, unknown, -
+Palmyra Pizza, 0.5, yes, yes, unknown, unknown, -
 Baked potato shop, 0.5, yes, yes, unknown, no, Vegetarian and vegan baked potatoes - huge portions
